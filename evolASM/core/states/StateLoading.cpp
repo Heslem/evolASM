@@ -1,4 +1,5 @@
 #include "StateLoading.h"
+#include <core/utils/Content.h>
 
 StateLoading::StateLoading()
 {
@@ -10,14 +11,10 @@ StateLoading::~StateLoading()
 
 void StateLoading::start()
 {
-	/*Core& core = Core::getInstance();
-
 	auto& content = Content::getInstance();
-	content.load();*/
+	content.load();
 
-
-	/*content.Musics["game_music"]->setLoop(true);
-	content.Musics["game_music"]->setVolume(15.0f);
+	/*
 
 	auto& stateManager = core.getStateManager();*/
 

@@ -1,11 +1,19 @@
 #pragma once
 #include <sfml.h>
 #include <core/StateManager.h>
-#include <utils/Camera.h>
+#include <core/utils/Camera.h>
 
+/// <summary>
+/// Core class is the main singletone class of the application.
+/// </summary>
 class Core final
 {
+	/// <summary>
+	/// Window of the application.
+	/// </summary>
 	sf::RenderWindow* _window;
+
+	// I can't say about that. That old code.
 	sf::Time _oneTcp;
 
 	Camera* _camera;
@@ -26,15 +34,21 @@ public:
 		return instance;
 	}
 
+	/// <summary>
+	/// Returns mouse position relative to the window.
+	/// </summary>
+	/// <returns></returns>
 	const sf::Vector2f getMousePosition() const;
 	const sf::Vector2u& getWindowSize() const;
-	const sf::Vector2f& getCameraPosition() const;
 	const bool& isWindowFocus() const;
 
-	Camera& getCamera();
 
+	/// <summary>
+	/// Load resources, initialize the window and run engine loop.
+	/// </summary>
 	void run();
 	void stop();
 
+	Camera& getCamera() { return *_camera; }
 	StateManager& getStateManager() { return *_stateManager; }
 };

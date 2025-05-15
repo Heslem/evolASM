@@ -1,6 +1,7 @@
 #include "StateManager.h"
 #include "states/StateLoading.h"
-#include <utils/Logger.h>
+#include <core/utils/Logger.h>
+
 StateManager::StateManager()
 	: _current(nullptr)
 {

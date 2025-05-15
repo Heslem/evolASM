@@ -138,20 +138,44 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="core\Core.cpp" />
+    <ClCompile Include="core\objects\GameObject.cpp" />
+    <ClCompile Include="core\render\Sprite.cpp" />
     <ClCompile Include="core\StateManager.cpp" />
     <ClCompile Include="core\states\StateLoading.cpp" />
+    <ClCompile Include="core\states\StateWorld.cpp" />
+    <ClCompile Include="core\utils\Content.cpp" />
     <ClCompile Include="evolASM.cpp" />
-    <ClCompile Include="utils\Camera.cpp" />
-    <ClCompile Include="utils\Logger.cpp" />
+    <ClCompile Include="core\utils\Camera.cpp" />
+    <ClCompile Include="core\utils\Logger.cpp" />
+    <ClCompile Include="imgui\imgui-SFML.cpp" />
+    <ClCompile Include="imgui\imgui.cpp" />
+    <ClCompile Include="imgui\imgui_demo.cpp" />
+    <ClCompile Include="imgui\imgui_draw.cpp" />
+    <ClCompile Include="imgui\imgui_tables.cpp" />
+    <ClCompile Include="imgui\imgui_widgets.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="core\Core.h" />
+    <ClInclude Include="core\objects\GameObject.h" />
+    <ClInclude Include="core\render\Sprite.h" />
     <ClInclude Include="core\State.h" />
     <ClInclude Include="core\StateManager.h" />
     <ClInclude Include="core\states\StateLoading.h" />
+    <ClInclude Include="core\states\StateWorld.h" />
+    <ClInclude Include="core\utils\Content.h" />
+    <ClInclude Include="core\utils\Event.h" />
+    <ClInclude Include="core\utils\Math.h" />
+    <ClInclude Include="imgui\imconfig.h" />
+    <ClInclude Include="imgui\imgui-SFML.h" />
+    <ClInclude Include="imgui\imgui-SFML_export.h" />
+    <ClInclude Include="imgui\imgui.h" />
+    <ClInclude Include="imgui\imgui_internal.h" />
+    <ClInclude Include="imgui\imstb_rectpack.h" />
+    <ClInclude Include="imgui\imstb_textedit.h" />
+    <ClInclude Include="imgui\imstb_truetype.h" />
     <ClInclude Include="sfml.h" />
-    <ClInclude Include="utils\Camera.h" />
-    <ClInclude Include="utils\Logger.h" />
+    <ClInclude Include="core\utils\Camera.h" />
+    <ClInclude Include="core\utils\Logger.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

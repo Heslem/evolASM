@@ -1,6 +1,9 @@
 #include "Core.h"
 
-#include <utils/Logger.h>
+#include <imgui/imgui.h>
+#include <imgui/imgui-sfml.h>
+
+#include <core/utils/Logger.h>
 
 Core::Core()
     : _oneTcp(sf::seconds(1.0f / 60.0f))
@@ -23,19 +26,9 @@ const sf::Vector2u& Core::getWindowSize() const
     return _window->getSize();
 }
 
-const sf::Vector2f& Core::getCameraPosition() const
-{
-    return _camera->getView().getCenter();
-}
-
 const bool& Core::isWindowFocus() const
 {
     return _window->hasFocus();
-}
-
-Camera& Core::getCamera()
-{
-    return *_camera;
 }
 
 void Core::run()
@@ -55,7 +48,8 @@ void Core::run()
     ico.loadFromFile("content/textures/bot.png");
     _window->setIcon(16, 16, ico.getPixelsPtr());
 
-    /*ImGui::SFML::Init(*_window);
+    Logger::info("Initialize ImGui.");
+    ImGui::SFML::Init(*_window);
     ImGui::SFML::SetCurrentWindow(*_window);
 
     ImGuiIO& io = ImGui::GetIO();
@@ -111,7 +105,7 @@ void Core::run()
     style.Colors[ImGuiCol_NavWindowingHighlight] = ImVec4(1.00f, 1.00f, 1.00f, 0.70f);
     style.Colors[ImGuiCol_NavWindowingDimBg] = ImVec4(0.80f, 0.80f, 0.80f, 0.20f);
     style.Colors[ImGuiCol_ModalWindowDimBg] = ImVec4(0.80f, 0.80f, 0.80f, 0.35f);
-    style.GrabRounding = style.FrameRounding = 2.3f;*/
+    style.GrabRounding = style.FrameRounding = 2.3f;
     
     _camera = new Camera(_window->getDefaultView());
 
@@ -153,16 +147,18 @@ void Core::loop()
             elapsed -= _oneTcp;
         }
 
-        //ImGui::SFML::Update(*_window, curTime);
+        ImGui::SFML::Update(*_window, curTime);
 
         _window->clear();
 
         _window->draw(*_stateManager);
         _stateManager->drawImGui();
 
+        ImGui::ShowDemoWindow();
+
         _window->setView(_camera->getView());
 
-        //ImGui::SFML::Render(*_window);
+        ImGui::SFML::Render(*_window);
         _window->display();
     }
 
@@ -173,9 +169,9 @@ void Core::loop()
 
 inline void Core::pollEvents()
 {
-    static sf::Event event;
+    sf::Event event;
     while (this->_window->pollEvent(event)) {
-        //ImGui::SFML::ProcessEvent(*_window, event);
+        ImGui::SFML::ProcessEvent(*_window, event);
         if (event.type == sf::Event::Closed) {
             stop();
         }
