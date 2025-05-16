@@ -2,11 +2,11 @@
 #include <core/Core.h>
 #include <core/utils/Math.h>
 
-World::World()
+StateWorld::StateWorld()
 {
 }
 
-World::~World()
+StateWorld::~StateWorld()
 {
 	for (size_t i = 0; i < _objects.size(); ++i)
 	{
@@ -14,7 +14,7 @@ World::~World()
 	}
 }
 
-void World::tick()
+void StateWorld::tick()
 {
 	for (size_t i = 0; i < this->_objects.size(); ++i)
 	{
@@ -31,18 +31,18 @@ void World::tick()
 
 }
 
-void World::create(GameObject* object)
+void StateWorld::spawn(GameObject* object)
 {
 	_objects.push_back(object);
 }
 
-void World::destroyObject(const size_t& index)
+void StateWorld::destroyObject(const size_t& index)
 {
 	delete _objects[index];
 	_objects.erase(_objects.begin() + index);
 }
 
-GameObject* World::computeClosestObject(GameObject& from)
+GameObject* StateWorld::computeClosestObject(GameObject& from)
 {
 	GameObject* retObj = nullptr;
 
@@ -64,7 +64,7 @@ GameObject* World::computeClosestObject(GameObject& from)
 
 
 
-GameObject* World::computeClosestObjectByName(GameObject& from, const char* name)
+GameObject* StateWorld::computeClosestObjectByName(GameObject& from, const char* name)
 {
 	GameObject* retObj = nullptr;
 
@@ -84,7 +84,7 @@ GameObject* World::computeClosestObjectByName(GameObject& from, const char* name
 	return retObj;
 }
 
-void World::draw(sf::RenderTarget& target, sf::RenderStates states) const
+void StateWorld::draw(sf::RenderTarget& target, sf::RenderStates states) const
 {
 	for (size_t i = 0; i < _objects.size(); ++i)
 	{

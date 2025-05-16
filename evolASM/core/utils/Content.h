@@ -4,12 +4,16 @@
 #include <string>
 #include <sfml.h>
 
+/// <summary>
+/// Load game content (textures, fonts, sounds and etc.)
+/// </summary>
 class Content final
 {
-private:
 	Content();
 	Content(const Content&) = delete;
 	void operator=(const Content&) = delete;
+
+	bool _isLoaded;
 public:
 	~Content();
 

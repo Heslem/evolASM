@@ -4,6 +4,9 @@
 
 #include <unordered_map>
 
+/// <summary>
+/// Manages the states of the game.
+/// </summary>
 class StateManager final
 	: public sf::Drawable
 {

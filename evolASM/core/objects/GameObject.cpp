@@ -29,11 +29,11 @@ const sf::Color& GameObject::getGameColor() const noexcept {
 
 const sf::FloatRect GameObject::getCollision() const noexcept
 {
-	return sf::FloatRect(getPosition(), _sprite.getSize());
+	return sf::FloatRect(getPosition(), mSprite.getSize());
 }
 
 void GameObject::draw(sf::RenderTarget& target, sf::RenderStates states) const
 {
 	states.transform *= getTransform();
-	target.draw(_sprite, states);
+	target.draw(mSprite, states);
 }

@@ -12,6 +12,7 @@ static std::string getFilename(const std::string& filepath)
 }
 
 Content::Content()
+    : _isLoaded(false)
 {
 }
 
@@ -34,6 +35,10 @@ Content::~Content()
 
 void Content::load()
 {// TODO: use template for loading
+
+    if (_isLoaded)
+        Logger::warn("Tried load game content more than once.");
+
     using namespace std;
 
     std::string texturesPath = "content/textures/";

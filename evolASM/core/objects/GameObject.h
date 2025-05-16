@@ -3,16 +3,18 @@
 #include <sfml.h>
 #include <core/render/Sprite.h>
 
-struct GameObject :
+/// <summary>
+/// Base class for all game objects.
+/// </summary>
+class GameObject :
 	public sf::Transformable, public sf::Drawable
 {
 	sf::Color gameColor = sf::Color::White;
 	bool _isDestroyed = false;
 	const char* _name;
 
-protected:
-	Sprite _sprite;
 public:
+	Sprite mSprite;
 
 	GameObject(const char* name);
 	virtual ~GameObject();

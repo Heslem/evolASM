@@ -138,11 +138,16 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="core\Core.cpp" />
+    <ClCompile Include="core\objects\entities\Player.cpp" />
+    <ClCompile Include="core\objects\Entity.cpp" />
     <ClCompile Include="core\objects\GameObject.cpp" />
     <ClCompile Include="core\render\Sprite.cpp" />
     <ClCompile Include="core\StateManager.cpp" />
     <ClCompile Include="core\states\StateLoading.cpp" />
     <ClCompile Include="core\states\StateWorld.cpp" />
+    <ClCompile Include="core\states\StateWorldMain.cpp" />
+    <ClCompile Include="core\tiles\Tile.cpp" />
+    <ClCompile Include="core\tiles\TileGrid.cpp" />
     <ClCompile Include="core\utils\Content.cpp" />
     <ClCompile Include="evolASM.cpp" />
     <ClCompile Include="core\utils\Camera.cpp" />
@@ -156,12 +161,18 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="core\Core.h" />
+    <ClInclude Include="core\objects\entities\Player.h" />
+    <ClInclude Include="core\objects\Entity.h" />
     <ClInclude Include="core\objects\GameObject.h" />
     <ClInclude Include="core\render\Sprite.h" />
     <ClInclude Include="core\State.h" />
     <ClInclude Include="core\StateManager.h" />
     <ClInclude Include="core\states\StateLoading.h" />
     <ClInclude Include="core\states\StateWorld.h" />
+    <ClInclude Include="core\states\StateWorldMain.h" />
+    <ClInclude Include="core\tiles\Tile.h" />
+    <ClInclude Include="core\tiles\TileGrid.h" />
+    <ClInclude Include="core\tiles\TileType.h" />
     <ClInclude Include="core\utils\Content.h" />
     <ClInclude Include="core\utils\Event.h" />
     <ClInclude Include="core\utils\Math.h" />

@@ -7,26 +7,33 @@
 #include <string>
 #include <vector>
 
-struct GameObject;
-
-class World :
+class StateWorld :
 	public State
 {
 
 	std::vector<GameObject*> _objects;
 public:
-	World();
-	virtual ~World();
+	StateWorld();
+	virtual ~StateWorld();
 
+	/// <summary>
+	/// Tick the state and all objects in the state.
+	/// Don't forget call this method while implementing your own state.
+	/// </summary>
 	virtual void tick() override;
 
-	void create(GameObject* object);
+	void spawn(GameObject* object);
 	void destroyObject(const size_t& index);
 
 	GameObject* computeClosestObject(GameObject& from);
 
 	GameObject* computeClosestObjectByName(GameObject& from, const char* name);
 protected:
+
+	/// <summary>
+	/// Draw the state and all objects in the state.
+	/// Don't forget call this method while implementing your own state.
+	/// </summary>
 	virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
 };
 
