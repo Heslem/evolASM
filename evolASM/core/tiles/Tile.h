@@ -1,7 +1,11 @@
 #include <sfml.h>
+#include <core/render/Sprite.h>
 
+/// <summary>
+/// Base class for all tiles
+/// </summary>
 class Tile
-    : public sf::Drawable
+    : public sf::Drawable, public sf::Transformable
 {
     enum class PhysicalType
     {
@@ -14,8 +18,10 @@ class Tile
 
     void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
 
-	sf::Sprite _sprite;
 public:
+
+    Sprite mSprite;
+
 	Tile();
 	~Tile();
 

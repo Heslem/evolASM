@@ -3,6 +3,7 @@
 #include <core/utils/Math.h>
 
 StateWorld::StateWorld()
+	: _tileGrid(8, 8)
 {
 }
 
@@ -16,6 +17,7 @@ StateWorld::~StateWorld()
 
 void StateWorld::tick()
 {
+	_tileGrid.tick();
 	for (size_t i = 0; i < this->_objects.size(); ++i)
 	{
 		if (this->_objects[i]->isDestroy()) {
@@ -86,6 +88,7 @@ GameObject* StateWorld::computeClosestObjectByName(GameObject& from, const char*
 
 void StateWorld::draw(sf::RenderTarget& target, sf::RenderStates states) const
 {
+	target.draw(_tileGrid, states);
 	for (size_t i = 0; i < _objects.size(); ++i)
 	{
 		target.draw(*_objects[i], states);

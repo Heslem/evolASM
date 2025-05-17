@@ -7,7 +7,6 @@ class Camera
 	sf::View _view;
 	sf::Transformable* _focused;
 
-	float _zoomFactor = 0.1f;
 	bool _isLock;
 	bool _isMoving;
 
@@ -21,8 +20,7 @@ public:
 
 	void setPosition(const sf::Vector2f& position);
 	void update();
-	void zoomPlus();
-	void zoomMinus();
+	void zoom(float factor = 0.1f);
 	void resize(const sf::Event& event);
 
 

@@ -1,6 +1,8 @@
 #include <sfml.h>
 #include <core/tiles/Tile.h>
 
+constexpr unsigned int TILE_SIZE = 16;
+
 /// <summary>
 /// A 2D grid of tiles.
 /// </summary>

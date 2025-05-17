@@ -1,7 +1,7 @@
 #include <core/objects/Entity.h>
 
 Entity::Entity(const char* name)
-    : GameObject(name), _health(100.f), _maxHealth(100.f), _speed(1.0f)
+    : GameObject(name), _health(100.f), _maxHealth(100.f), _speed(16.0f)
 {
 }
 

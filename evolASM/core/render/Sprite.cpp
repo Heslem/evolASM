@@ -1,4 +1,5 @@
 #include "Sprite.h"
+#include <core/utils/Content.h>
 
 Sprite::Sprite(sf::Texture* texture)
 	: _vertices(sf::PrimitiveType::Quads, 4), _texture(texture)
@@ -39,6 +40,10 @@ void Sprite::setTexture(sf::Texture* texture)
 	_vertices[3].texCoords = sf::Vector2f(0, size.y);
 }
 
+void Sprite::setTexture(const char* textureName)
+{
+	setTexture(Content::getInstance().Textures[textureName]);
+}
 void Sprite::setColor(const sf::Color& color)
 {
 	_vertices[0].color = color;

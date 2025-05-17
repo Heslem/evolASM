@@ -49,20 +49,16 @@ void Camera::update()
 		}
 	}
 	else {
-		_view.setCenter(_focused->getPosition());
+		_view.setCenter(_focused->getPosition() + sf::Vector2f(8, 8));
 	}
 }
 
-void Camera::zoomPlus()
-{
-	if (_isLock) return;
-	_view.zoom(1.0f - _zoomFactor);
-}
 
-void Camera::zoomMinus()
+void Camera::zoom(float factor)
 {
 	if (_isLock) return;
-	_view.zoom(1.0f + _zoomFactor);
+
+	_view.zoom(1.0f - factor);
 }
 
 void Camera::resize(const sf::Event& event)

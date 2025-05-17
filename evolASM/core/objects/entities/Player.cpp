@@ -4,27 +4,35 @@
 Player::Player()
     : Entity("player")
 {
+    mSprite.setTexture("player");
 }
 
 Player::~Player()
 {
 }
 
+
 void Player::tick()
 {
-    // Get keyboard input
+    static bool pressed = false;
+
     sf::Vector2f movement(0.f, 0.f);
-    
+
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
         movement.y -= getSpeed();
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
+    else if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
         movement.y += getSpeed();
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
+    else if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
         movement.x -= getSpeed();
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
+    else if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
         movement.x += getSpeed();
+    else
+        pressed = false;
+    if (!pressed) {
 
-    move(movement);
+        pressed = movement.x != 0.f || movement.y != 0.f;
+        move(movement);
+    }
 }
 
 

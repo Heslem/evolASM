@@ -7,11 +7,14 @@
 #include <string>
 #include <vector>
 
+#include <core/tiles/TileGrid.h>
+
 class StateWorld :
 	public State
 {
 
 	std::vector<GameObject*> _objects;
+	TileGrid _tileGrid;
 public:
 	StateWorld();
 	virtual ~StateWorld();

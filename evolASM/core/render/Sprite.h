@@ -17,6 +17,7 @@ public:
 
 	void setSize(const sf::Vector2f size);
 	void setTexture(sf::Texture* texture);
+	void setTexture(const char* textureName);
 	void setColor(const sf::Color& color);
 
 	void flip(const bool& value);

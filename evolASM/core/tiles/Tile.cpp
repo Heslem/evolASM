@@ -11,6 +11,7 @@ Tile::~Tile()
 
 void Tile::draw(sf::RenderTarget& target, sf::RenderStates states) const
 {
-    target.draw(_sprite, states);
+    states.transform *= getTransform();
+    target.draw(mSprite, states);
 }
 

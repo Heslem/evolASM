@@ -108,6 +108,7 @@ void Core::run()
     style.GrabRounding = style.FrameRounding = 2.3f;
     
     _camera = new Camera(_window->getDefaultView());
+    _camera->zoom(500.0f);
 
     Logger::info("Initialize state manager.");
     _stateManager = new StateManager();
@@ -142,7 +143,6 @@ void Core::loop()
 
             _stateManager->tick();
 
-            _camera->update();
 
             elapsed -= _oneTcp;
         }
@@ -151,12 +151,13 @@ void Core::loop()
 
         _window->clear();
 
+        _camera->update();
+        _window->setView(_camera->getView());
         _window->draw(*_stateManager);
         _stateManager->drawImGui();
 
         ImGui::ShowDemoWindow();
 
-        _window->setView(_camera->getView());
 
         ImGui::SFML::Render(*_window);
         _window->display();
@@ -176,12 +177,7 @@ inline void Core::pollEvents()
             stop();
         }
         else if (event.type == sf::Event::MouseWheelScrolled) {
-            if (event.mouseWheelScroll.delta < 0) {
-                _camera->zoomMinus();
-            }
-            else if (event.mouseWheelScroll.delta > 0) {
-                _camera->zoomPlus();
-            }
+            _camera->zoom(event.mouseWheelScroll.delta * 0.1f);
         }
         else if (event.type == sf::Event::Resized) {
             _camera->resize(event);

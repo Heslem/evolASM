@@ -1,5 +1,6 @@
 #include "StateWorldMain.h"
 #include <core/objects/entities/Player.h>
+#include <core/Core.h>
 
 StateWorldMain::StateWorldMain()
 {
@@ -14,7 +15,9 @@ void StateWorldMain::start()
 	StateWorld::start();
 
 	Player* player = new Player();
-	player->mSprite.setSize(sf::Vector2f(50, 50));
+	player->mSprite.setSize(sf::Vector2f(16, 16));
+
+	Core::getInstance().getCamera().focus(player);
 
 	spawn(player);
 }
