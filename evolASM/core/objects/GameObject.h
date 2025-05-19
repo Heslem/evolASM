@@ -3,6 +3,8 @@
 #include <sfml.h>
 #include <core/render/Sprite.h>
 
+class TileGrid;
+
 /// <summary>
 /// Base class for all game objects.
 /// </summary>
@@ -13,6 +15,9 @@ class GameObject :
 	bool _isDestroyed = false;
 	const char* _name;
 
+protected:
+	TileGrid* _tilegrid;
+
 public:
 	Sprite mSprite;
 
@@ -20,6 +25,8 @@ public:
 	virtual ~GameObject();
 
 	virtual void tick();
+
+	void setTileGrid(TileGrid* tilegrid) { _tilegrid = tilegrid; }
 
 	void destroy() noexcept;
 

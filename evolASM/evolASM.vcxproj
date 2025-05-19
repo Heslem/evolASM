@@ -161,7 +161,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="core\Core.h" />
+    <ClInclude Include="core\objects\entities\Bot.h" />
     <ClInclude Include="core\objects\entities\Player.h" />
+    <ClInclude Include="core\utils\PerlinNoise.h" />
+    <ClInclude Include="core\vm\TokenType.h" />
+    <ClInclude Include="core\vm\Vm.h" />
     <ClInclude Include="core\objects\Entity.h" />
     <ClInclude Include="core\objects\GameObject.h" />
     <ClInclude Include="core\render\Sprite.h" />

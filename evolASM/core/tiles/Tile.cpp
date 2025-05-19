@@ -8,10 +8,3 @@ Tile::Tile()
 Tile::~Tile()
 {
 }
-
-void Tile::draw(sf::RenderTarget& target, sf::RenderStates states) const
-{
-    states.transform *= getTransform();
-    target.draw(mSprite, states);
-}
-

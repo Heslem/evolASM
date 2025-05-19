@@ -3,7 +3,7 @@
 #include <core/utils/Math.h>
 
 StateWorld::StateWorld()
-	: _tileGrid(8, 8)
+	: _tileGrid(128, 128)
 {
 }
 
@@ -92,6 +92,5 @@ void StateWorld::draw(sf::RenderTarget& target, sf::RenderStates states) const
 	for (size_t i = 0; i < _objects.size(); ++i)
 	{
 		target.draw(*_objects[i], states);
-		//Core::getInstance().drawRect(objects[i]->getCollision(), sf::Color::Red);
 	}
 }

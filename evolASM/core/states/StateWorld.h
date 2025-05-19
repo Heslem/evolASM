@@ -12,7 +12,7 @@
 class StateWorld :
 	public State
 {
-
+protected:
 	std::vector<GameObject*> _objects;
 	TileGrid _tileGrid;
 public:

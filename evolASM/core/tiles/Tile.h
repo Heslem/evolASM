@@ -5,22 +5,19 @@
 /// Base class for all tiles
 /// </summary>
 class Tile
-    : public sf::Drawable, public sf::Transformable
+    : public sf::Transformable
 {
+    bool _isDirty;
+
+
+public:
     enum class PhysicalType
     {
         Gas,
         Liquid,
         Solid
     };
-
-    bool _isDirty;
-
-    void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
-
-public:
-
-    Sprite mSprite;
+    PhysicalType mPhysType = PhysicalType::Gas;
 
 	Tile();
 	~Tile();

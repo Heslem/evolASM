@@ -16,6 +16,7 @@ void StateWorldMain::start()
 
 	Player* player = new Player();
 	player->mSprite.setSize(sf::Vector2f(16, 16));
+	player->setTileGrid(&_tileGrid);
 
 	Core::getInstance().getCamera().focus(player);
 

@@ -14,6 +14,9 @@ class TileGrid final
     unsigned int _width;
     unsigned int _height;
 
+    sf::VertexArray _array;
+    sf::Texture* _tilemap;
+
     void draw(sf::RenderTarget& target, sf::RenderStates states) const;
 public:
 	TileGrid(const unsigned int& width, const unsigned int& height);
